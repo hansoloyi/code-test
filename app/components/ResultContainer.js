@@ -38,7 +38,7 @@ export default class ResultContainer extends Component {
     const seriesActive = (this.props.type == 'series');
     const episodesActive = (this.props.type == 'episode');
 
-    var sortedList = this.props.list;
+    var sortedList = this.props.list || [];
     sortedList.sort(function(a, b) {
       const aYear = a.Year || '0';
       const bYear = b.Year || '0';

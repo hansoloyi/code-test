@@ -79,8 +79,9 @@ export default class Sidebar extends Component {
       recentItem
      } = styles;
     const backgroundStyle = Object.assign({}, background, this.props.styles);
+    const recent = this.props.recent || [];
 
-    const recentMap = this.props.recent.slice(0,8).map((recent, idx) => {
+    const recentMap = recent.slice(0,8).map((recent, idx) => {
       return (
         <Link to={`search/${recent}/1`} key={idx}>
           <div style={recentStyle} onClick={this._handleClick.bind(this, recent)}>

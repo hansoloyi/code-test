@@ -63,13 +63,14 @@ export default class Favorites extends Component {
 
   render() {
     const { background, title, clear, item, loadMore } = styles;
+    const favorites = this.props.favorites || [];
     return (
       <div style={background}>
         <Title title={"Favorites"} styles={title}>
           <Star color={colors.teal} width={28} height={28} />
         </Title>
         <div style={item}>
-          {this.props.favorites.slice(0, this.state.numToShow).map((fav, idx) => {
+          {favorites.slice(0, this.state.numToShow).map((fav, idx) => {
             return (<Result key={idx} favorites={this.props.favorites} dispatch={this.props.dispatch} result={fav} />)
           })}
         </div>

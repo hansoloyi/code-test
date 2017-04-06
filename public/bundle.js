@@ -20137,8 +20137,9 @@
 	          recentItem = styles.recentItem;
 
 	      var backgroundStyle = Object.assign({}, background, this.props.styles);
+	      var recent = this.props.recent || [];
 
-	      var recentMap = this.props.recent.slice(0, 8).map(function (recent, idx) {
+	      var recentMap = recent.slice(0, 8).map(function (recent, idx) {
 	        return _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: 'search/' + recent + '/1', key: idx },
@@ -31266,7 +31267,7 @@
 	      var seriesActive = this.props.type == 'series';
 	      var episodesActive = this.props.type == 'episode';
 
-	      var sortedList = this.props.list;
+	      var sortedList = this.props.list || [];
 	      sortedList.sort(function (a, b) {
 	        var aYear = a.Year || '0';
 	        var bYear = b.Year || '0';
@@ -48763,6 +48764,7 @@
 	          item = styles.item,
 	          loadMore = styles.loadMore;
 
+	      var favorites = this.props.favorites || [];
 	      return _react2.default.createElement(
 	        'div',
 	        { style: background },
@@ -48774,7 +48776,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: item },
-	          this.props.favorites.slice(0, this.state.numToShow).map(function (fav, idx) {
+	          favorites.slice(0, this.state.numToShow).map(function (fav, idx) {
 	            return _react2.default.createElement(_Result2.default, { key: idx, favorites: _this2.props.favorites, dispatch: _this2.props.dispatch, result: fav });
 	          })
 	        ),
